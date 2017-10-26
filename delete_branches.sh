@@ -3,7 +3,7 @@
 YEAR=$1
 
 #Example "master|dev*|release*"
-EXCLUDED_BRANCHES="master"
+EXCLUDED_BRANCHES="master|*release*"
 INCLUDED_BRANCHES="*|*"
 
 BRANCHES=()
