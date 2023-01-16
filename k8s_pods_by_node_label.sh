@@ -4,8 +4,17 @@
 SELECTORS=$1
 
 NODES=$(kubectl get nodes --selector "$SELECTORS" --output jsonpath='{.items[*].metadata.name}')
+echo "======================="
+echo "Nodes martching labels: $SELECTORS"
+echo "======================="
+echo $NODES
 
-for node in $NODES
+echo -e "\n"
+
+for NODE in $NODES
 do
-    kubectl get pods --all-namespaces --field-selector spec.nodeName=$node
+    echo "======================"
+    echo "Getting pods for node: $NODE"
+    echo "======================"
+    kubectl get pods --all-namespaces --field-selector spec.nodeName=$NODE
 done
